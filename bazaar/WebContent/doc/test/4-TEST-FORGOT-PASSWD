@@ -1,0 +1,50 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : forgot password
+Scenario name   : user not found
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Leave the field "Indirizzo Email" empty or type an email address of an user 
+   not registered.
+
+Expected results:
+
+1. The following message should appear:
+		"Utente non registrato"
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : forgot password
+Scenario name   : wrong smtp server
+Description     :
+
+1. Edit the conf/shop.xml file inserting a wrong smtp server.
+2. Connect through a web browser to Bazaar system.
+3. Select the "Login" link.
+4. In the forgot password section insert the mail address of an existing
+   customer.
+
+Expected results:
+
+1. The following message should appear:
+	"Impossibile inviare la mail tramite il server SMTP: <server>.
+	Aggiorna il file conf/shop.xml"
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : forgot password
+Scenario name   : send forgot password mail successfully.
+Description     :
+
+1. Edit the conf/shop.xml file inserting a correct smtp server.
+2. Connect through a web browser to Bazaar system.
+3. Select the "Login" link.
+4. In the forgot password section insert the mail address of an existing
+   customer.
+
+Expected results:
+
+1. The following message should appear:
+    "La password e' stata inviata con successo."
+2. The forgot password mail is correctly sent to the customer.
+--------------------------------------------------------------------------------

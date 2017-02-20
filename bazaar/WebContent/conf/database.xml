@@ -1,0 +1,6 @@
+<database>
+	<driver>org.gjt.mm.mysql.Driver</driver>
+	<url>jdbc:mysql://localhost/bazaar</url>
+	<username>root</username>
+	<password>nicoletta</password>
+</database>

@@ -1,0 +1,105 @@
+Queste sono le attivita' previste x JSPCart, che verra' da noi chiamato Bazaar.
+
+MAX Priority
+--------------------------------------------------------------------------------
+1. Trovare un meccanismo di templating x il sito.
+2. La descrizione di un prodotto, dovrebbe essere una text area.
+3. Quando l'amministratore vede i dettagli di un ordine, dovrebbe vedere anche 
+   l'indirizzo a cui inviarlo (shipping address).
+4. Capire come va gestito al meglio il tracking degli ordini. Attualmente il cliente non
+   vede nessuna informazione di questo tipo.
+
+LOW Priority (Next Release)
+--------------------------------------------------------------------------------
+1.  Mettere la sola nazionalita' italiana, senza possibilita' di modificarla 
+    nella fase di registrazione profilo e modifica profilo.
+2.  Usare Struts Validator per la validazione dei campi in input.
+3.  Usare Struts per il flow control.
+4.  Usare un resource bundle per memorizzare le label.
+5.  Selezione della provincia tramite combo box nella registrazione.
+6.  Quando un utente si registra, puo' decidere di ricevere messaggi 
+    pubblicitari, tuttavia non vedo meccanismi per l'invio di queste email.
+7.  Aggiungere due parametri di configurazione.
+    Limite Spese Aggiuntive: se non si supera quel limite si applicano spese
+                             aggiuntive.
+    Valore Spese Aggiuntive: se SubTotale < Limite Spese Aggiuntive allora 
+                             questo valore viene aggiunto al SubTotale.
+8. Aggiungere un miglior supporto x il logging. Magari utilizzando aspectj.
+9. Avrebbe senso nella gestione dei prodotti consentire la cancellazione
+	multipla dei prodotti.
+10. Scrivere un search engine che si occupi di integrare tra loro tutti i 
+    negozi Bazaar. In pratica dovrebbe funzionare cosi'. Una persona si scarica
+    il software Bazaar e lo installa sulla sua macchina. Si registra a Bazaar
+    inserendo sia dati personali che dati sul negozio. Il search engine, come
+    google dovrebbe essere in grado di scovare anche i negozi Bazaar non registrati.
+    Periodicamente Bazaar genera un file xml che viene prelevato dai crawler
+    del search engine ed elaborato. Tramite il file xml il search engine avra'
+    info aggiornate sul negozio e sul catalogo dei prodotti. Il motore Bazaar
+    avra' meccanismi di feedback x i vari negozi.
+    Questo nuovo tool dovr? avere anche un meccanismo che consente alle persone
+    di aprire un negozio online per la vendita di prodotti dopo il pagamento
+    di una data cifra.
+11. Attualmente nella sezione category management, quando vedo i dettagli di
+    una categoria, se questa ha 25 prodotti, non li vedo paginati. Questo
+    non e' un problema, perche' teoricamente x ogni categoria ci dovrebbero
+    essere pochi prodotti. Bisogna vedere in pratica, quando il prodotto 
+    verra' usato dai clienti se il paging serve oppure no.
+12. La gestione delle email template, per come e' scritto ora il codice, ha 
+    senso solo la modifica del contenuto del messaggio. Aggiunta di nuovi 
+    email templates non ha senso visto che non esiste il codice x sfruttarlo. 
+    Cmq, bisognera' in futuro capire se conviene lasciare l'add di nuovi email 
+    templates. Il listing, invece, penso che abbia sempre senso. Infatti oggi 
+    ci sono 4 email template, domani potrebbero essere 20, per cui e' 
+    conveniente lasciare la gestione.
+13. La gestione delle preferenze, inizialmente e' stata pensata dal team 
+    jspcart per customizzare il codice HTML di alcune parti di specifiche 
+    pagine. Es.
+    	Pagina Login -> Header, Title e Footer
+		
+		global page	(header, title e footer x ogni pagina)
+		category page
+		product list page
+		product page
+		cart page
+		shipping page
+		userinfo page
+		check out page
+		login page
+		myaccount page
+		myorder page
+		change profile page
+		change password page
+		signup page
+    questa gestione, cosi' com'e', va rimossa. Se il templating richiedera' 
+    queste caratteristiche, verranno implementate con un meccanismo piu' smart 
+    e internazionalizzabile (ie. bundles, etc.).
+14. Le variabili vengono usate per usare valori nel codice che possono essere
+    cambiate a runtime dall'utente. Dovro' riflettere se questo meccanismo
+    serve realmente o puo' essere sostituito con un altro piu' smart. Per ora
+    sembra conveniente usarlo.
+15. Per ora la gestione delle Nazioni rimane, c'e' da capire se serve realmente.
+    Ho il sospetto che la si utilizza per impostare le tasse di spedizioni x 
+    ogni paese. Cmq, per ora lo lasciamo.
+16. Evitare la gestione dei download dei csv con una servlet differente.
+17. Avrebbe senso, oltre ai template, dare la possibilita' ai negozianti di 
+    customizzare i colori del proprio sito web. In pratica in una pagina 
+    apparira' la ruota cromatica.
+    Sceglieranno inizialmente lo schema armonico: Analogo, Complementare, etc.
+    Poi sceglieranno sulla ruota il colore fondamentale e il software 
+    provvedera' a scegliere gli altri colori armonici. A quel punto l'utente 
+    scegliera x ogni attributo grafico (bordi finestra, sfondo, etc.) 
+    il relativo colore armonico.
+18. Aggiungere il pagamento PayPal e carta di credito.
+19. Dare la possibilita' all'amministratore di personalizzare la sua home page.
+    La home page conterra' alcuni oggetti standard: search bar, offerte prodotti, news.
+    un dato template decide come organizzare questi dati sullo schermo. Per ora le
+    cose da mettere in home page sono:
+    	- LOGO (personalizzabile)
+    	- Search Bar
+    	- News
+    	- Offerte Prodotti
+    	- Novita' prodotti
+20. Almeno x la gestione Prodotti in admin, la paginazione dovrebbe esere fatta in
+    modo tale da accedere direttamente alla prima/ultima o iesima pagina.
+21. A breve la viariabile globale unica website dovrebbe essere implementata come singleton.
+    Pi? in la puo' darsi che possa essere completamente eliminato.

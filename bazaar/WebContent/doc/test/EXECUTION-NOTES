@@ -1,0 +1,101 @@
+Test Plan
+---------
+
+PHASE 			USE CASE		SCENARIO NUM			RESULT
+--------------------------------------------------------------------------------
+DEV TEMPLATE	HOME			1						ok
+
+				REGISTER		1						ok
+								2						ok				
+								3						ok
+								4						ok
+
+				USER LOGIN		1						ok				
+								2						ok
+								3						ok
+								4						ok
+								5						failed SEV 3 Num. 8
+
+				USER LOGOUT		1						ok						
+								2						ok
+								3						ok
+
+				FORGOT PASSWD	1						ok
+								2						ok
+								3						not executed yet
+
+				CHANGE PASSWD	1						ok
+								2						ok
+								3						ok
+								4						ok
+
+				CHANGE PROFILE	1						ok
+								2						ok
+								3						ok
+								4						ok
+
+				CATEGORIES		1						ok
+								2						ok
+								3						ok
+								4						ok
+								5						ok
+
+				PRODUCTS		1						ok
+								2						ok
+								3						ok
+								4						ok
+								5						ok
+
+				PROD-CATS		1						ok
+								2						ok
+								3						ok
+								4					    ok
+								5						ok
+
+				EMAIL TEMP.		1						ok
+								2						ok
+								3						ok
+								4						ok
+
+				VARIABLES		1						ok
+								2						ok
+								3						ok
+								4						ok
+
+				COUNTRIES		1						ok
+								2						ok
+								3						ok
+								4						ok
+								5						ok
+							
+				SHIPPING		1						ok
+								2						ok
+								3						ok
+								4						ok
+								5						ok
+
+				USERS			1						ok
+								2						ok
+								3						ok
+								4						ok
+								5						ok
+								
+				BUY				1						ok
+								2						ok
+								3						ok
+								4						ok
+								5						ok
+								6						ok
+								7						ok
+								8						ok
+								9						ok
+				
+				ADM ORDERS		1						ok
+								2						ok
+								3						ok
+								4						ok
+								5						failed SEV. 3 Num. 6
+								6						not executed yet
+								7						failed SEV. 3 Num. 7
+								8						failed SEV. 3 Num. 7
+								

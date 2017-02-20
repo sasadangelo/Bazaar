@@ -1,0 +1,19 @@
+1. Loggarsi come root
+2. Installare cvs sulla propria macchina
+	emerge cvs
+3. Creare un gruppo cvs e un utente cvs appartenente a tale gruppo
+	groupadd cvs
+	useradd -g cvs -d /home/cvs -p <passwd> cvs
+4. Creare la directory che conterra' il repository cvs
+	mkdir <CVS REPOSITORY>
+5. Dare i permessi corretti a questo repository
+	chown -R cvs:cvs <CVS REPOSITORY>
+6. Nel file /home/cvs/.bashrc impostare la variable di ambiente CVSROOT:
+	export CVSROOT=<CVS REPOSITORY>
+6. Inizializzare il repository
+	cvs -d <CVS REPOSITORY> init
+7. Aprire una nuova shell bash e loggarsi come cvs
+	su - cvs
+8. Posizionarsi sull'albero dei sorgenti e digitare:
+	cvs -m "<msg>" <project name> <vendortag> <releasetag>
+

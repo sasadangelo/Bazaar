@@ -1,0 +1,18 @@
+1. Start Eclipse and create a new workspace.
+2. Setting up Tomcat configuration.
+	a. Click on Windows -> Preferences
+	b. On the right panel select Tomcat
+	c. Select Tomcat version 5.x
+	d. Specify the home directory of tomcat.
+	e. Press OK.
+	f. On the right panel expand Tomcat menu and select Advanced.
+	g. Set up the Tomcat base directory.
+	h. Press OK.
+3. Select File -> New -> Project.
+4. Expand Java and select Tomcat Project.
+5. Insert the Project name, press next and the Finish.
+6. Eclips will ask if you want to switch to the web perspective. Choose Yes.
+7. Select the new project and right click. Select Import.
+8. Select Zip file and press Next.
+9. Choose the war file on the filesystem and select then "Overwrite existing
+   resources without warning"

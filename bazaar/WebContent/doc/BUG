@@ -1,0 +1,72 @@
+SEV 4 (NICE TO HAVE)
+--------------------
+
+1. Supponendo di avere piu' di 10 prodotti inseriti. Definisco una categoria.
+   Poi nella sezione categorie, provo a a selezionare un prodotto e cambio
+   pagina ritornando indietro. Trovo il prodotto precedentemente selezionato
+   non checkato.
+
+   Questo in realta' non e' un BUG, ma volendo si puo' migliorare.
+
+SEV 3
+-----
+1. Tutti i link del tipo xxx/yyy/File.jsp devono avere un corrispettivo link struts.
+   Se non si fa questo chiunque puo' digitare l'url bypassando la security.
+   L'unico file che sembra non essere affetto da questo problema e' admin/orders/PrintCSV.jsp 
+   perche' la gestione del download dei csv e' gestita attraverso un'altra servlet.
+
+2. Loggandomi come addministratore da una macchina windows, se carico una foto
+   non riesco a vederla. Penso che il problema sia legato ai path windows/linux. Da window xp
+   questo problema non si verifica.
+
+3. Durante l'acquisto di un prodotto conviene rimpiazzar la list box (1 Confezione, 2 Confezioni, etc) con
+   un text box in cui e' possibile digitare la quantity.
+
+4. La gestione delle spese di spedizione e delle spese aggiuntive va rivista.
+
+5. Attualmente quando un prodotto viene rimosso, l'immagine rimane sul
+   filesystem, bisognera' rimuoverla.
+
+6. Quando da amministratore modifico il tracking di un ordine ci sono alcuni problemi.
+   Innanzittutto se seleziono la list box delle compagnie postali, la prima compare due volte.
+   Inoltre dopo l'update la compagnia non viene memorizzata.
+   Se durante Edit Tracking non associo l'ordine ad alcuna compagnia postale e premo il bottone Salva
+   becco una NullPointerException. Questo perch? alla linea 42 di EditTracking.jsp 
+
+7. Lavorando come amministratore visualizzo N ordini e seleziono il link "Stampa tutti i CSV".
+   Innanzittutto dovrei stampare solo quelli per gli ordini selezionati.
+   Poi Se premo mostra di nuovo mi ricompare la dialog box che mi chiede se aprire o salvare il file.
+   Per "Stampa Tutto" vale lo stesso problema.
+
+8. Nel 5 test case di urls not authorized, quando non sono loggato come user digito il link
+   adminListCategories.do che rimane memorizzato in txtRedirect, per cui capita che loggandomi
+   come utente per digitare sempre lo stesso urls, mi compare da subito la pagina di login
+   con il messaggio di errore.
+
+9. In Aggiungi/Modifica Categoria (Amministratore) il nome dovrebbe essere required e unique.
+
+10. Rimuovere in ADD/Edit Category tutte le info non necessarie. Lasciare Nome, Descrizione e Titolo.
+    Per il itolo bisognerebbe fare un'analisi per capire se vale la pena tenerlo.
+
+12. Non ne sono sicuro. E' probabile che se ho una categoria con n categorie
+    nested, se elimino la prima in cache le altre rimangono (dal db, invece,
+    tutto viene rimosso).
+
+13. In ADD/EDIT Product il campo nome dovrebbe essere reuired e unique.
+
+14. In modifica prodotto (in category management) se il prodotto appartiene a piu' categorie
+    e ne seleziono una per rimuoverne il link, oltre a quella vanno via anche altre.
+
+15. Nome e' un campo required x compagnie postali in fase di add e edit.
+
+16. Se un prodotto ha una descrizione troppo lunga, admin list products diventa troppo largo.
+   
+SEV 2
+-----
+
+1. Se stoppo Mysql e lo restarto poi perdo la connessione a JDBC e non funzia
+   piu' nulla. Modificare anche tutti i JSP affinche' gli errori vengano corret-
+   tamente visualizzati.
+
+SEV 1
+-----

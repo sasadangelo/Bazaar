@@ -1,0 +1,160 @@
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+
+<%@ page import='org.opencommunity.bazaar.utils.business.*,org.opencommunity.bazaar.account.dto.*'%>
+
+<%
+    IDataListHandler list = (IDataListHandler) request.getSession(true).getAttribute("listCategories");
+    IDataListChunk chunk = list.getListChunk();
+%>
+
+<%
+/*
+	int nStart    = website.getRequestParameter(request, "nStart",    0);
+	int nSize     = website.getRequestParameter(request, "nSize",    11);
+	int nParentID = website.getRequestParameter(request, "nParentID", 0);
+
+    String txtRedirect=org.nspeech.web.UrlEncoderEx.encode("/adminListCategories.do?nParentID=" + nParentID);
+    
+	Category parent = null;
+
+    if(nParentID != 0) {
+        parent = website.categories.get(nParentID);
+    }
+	
+	List items = website.categories.getAll(nParentID, nStart, nSize);
+	*/
+%>
+
+Gestione Categorie - Bazaar
+						
+<TABLE class=Data cellspacing=1>
+	<TR>
+		<TD><A href="adminListCategories.do">Bazaar</A> > 
+			<%=/*( (parent!=null) ? parent.getHierarchy(" > ","","adminListCategories.do") : "" )*/%>
+		</TD>
+	</TR>
+</TABLE>
+					
+<%
+	if (list.size() > 0) {
+%>
+		<TABLE class='Data' width=100%>
+			<TR>
+				<TH valign="top" colspan=5>Categorie in <%=/*((parent==null)?("+"):(parent.txtName))*/%></TH>
+			</TR>
+			<TR>
+				<TH valign="top">ID</TH>
+				<TH valign="top">Nome</TH>
+				<TH valign="top">Dettagli</TH>
+				<TH valign="top">&nbsp;</TH>
+				<TH valign="top">&nbsp;</TH>
+			</TR>
+<%
+			for (IDataListIterator itr = chunk.iterator(); itr.hasNext(); ) {
+				Category category = (Category) itr.next();
+%>
+			    <TR>
+				    <TD valign="top"><%=object.nID%></TD>
+				    <TD valign="top"><A href="adminListCategories.do?nParentID=<%=category.getNID()%>"><%=object.txtName%></A></TD>
+				    <TD valign="top"><A href="adminEditCategory.do?nID=<%=category.getNID()%>">Modifica</A></TD>
+				    <TD valign="top"><A href="javascript:deleteObject('<%=category.getNID()%>')">Cancella</A></TD>
+			    </TR>
+<%
+			}
+%>
+		</TABLE>
+<%
+	} else {
+%>
+		<TABLE class='Data'  width=100%>
+			<TR>
+				<TH valign="top" colspan=5>Categorie in <%=/*((parent==null)?("+"):(parent.txtName))*/%></TH>
+			</TR>
+			<TR>
+				<TD>Non ci sono Categorie all'interno di questa Categoria</TD>
+			</TR>
+		</TABLE>
+<%
+	}
+%>
+	<TABLE class='Data'>
+		<TR>
+<% 
+			if (chunk.hasPrev()) {
+%>
+				<TD><A HREF="adminListCategories.do?page=prev">Prec</A> |</TD>
+<%
+			} else { 
+%>
+				<TD>Prec |</TD>
+<%
+			}
+
+ 			if (chunk.hasNext()) {
+%>
+				<TD><A HREF="adminListCategories.do?page=next">Succ</A></TD>
+<%
+			} else {
+%>
+				<TD>Succ</TD>
+<%
+			}
+%>
+		</TR>
+	</TABLE>
+						
+	<TABLE class='Data'>
+		<TR>
+			<TD><A HREF="adminAddCategory.do">Aggiungi nuova Categoria</A></TD>
+		</TR>
+	</TABLE>
+						
+	<BR>
+<%
+	if (parent != null) {
+%>
+		<TABLE class=data cellspacing=1 width=100%>
+			<TR>
+				<TH colspan=3>Prodotti nella Categoria <%=parent.txtName%></TH>
+			</TR>
+<%
+			Vector products = parent.products;
+			Enumeration enum = products.elements();
+			while(enum.hasMoreElements()) {
+				Product p = (Product) enum.nextElement();
+%>
+			<TR>
+				<TD><STRONG><%=p.txtName%></STRONG><BR><%=p.txtDescription%></TD>
+				<TD><A href="adminEditProduct.do?nID=<%=p.nID%>&txtRedirect=<%=txtRedirect%>">Modifica</A></TD>
+				<TD><A href="javascript:removeProduct(<%=parent.nID%>,'<%=parent.txtName%>',<%=p.nID%>,'<%=p.txtName%>')">Cancella</A></TD>
+			</TR>
+<%
+			}
+%>
+			<TR>
+				<TD colspan=3>
+					<A href="adminAddProductCategory.do?nCategoryID=<%=parent.nID%>">Aggiungi Prodotto nella Categoria <%=parent.txtName%></A>
+				</TD>
+			</TR>
+		</TABLE>
+		<BR>
+<%
+	}
+%>
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+	function deleteObject(nCategoryID, txtCategoryName) {
+		if(confirm("Sei sicuro di voler cancellare la Categoria " + txtCategoryName + "?")) {
+			location.href = "adminDeleteCategory?id=" + nCategoryID;
+		}
+	}
+	
+	function removeProduct(nCategoryID, txtCategoryName, nProductID, txtProductName) {
+		if(confirm("Sei sicuro di voler cancellare "+txtProductName+" da "+txtCategoryName)) 	{
+			location.href = "admin/categories/RemoveProduct.jsp?nCategoryID=" + nCategoryID + "&nProductID=" + nProductID + "&nStart=<%=nStart%>&nSize=<%=nSize%>";
+		}
+	}
+//-->
+</SCRIPT>

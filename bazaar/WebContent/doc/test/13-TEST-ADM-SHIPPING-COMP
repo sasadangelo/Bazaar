@@ -1,0 +1,79 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : shipping companies management
+Scenario name   : add shipping company
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Compagnie Postali" and then "Aggiungi".
+4. Insert values and press the button "Conferma".
+
+Expected results:
+
+1. The new shipping company is added to the system.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : shipping companies management
+Scenario name   : modify shipping company
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert a shipping company as in scenario 1.
+5. Select the link "Modifica" in the countries list page, for the company
+   just inserted.
+6. Change the values and press the button "Conferma".
+
+Expected results:
+
+1. The company is correctly changed.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : shipping companies management
+Scenario name   : delete shipping company
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert a company as in scenario 1.
+5. Select the link "Cancella" and confirm the deletion.
+
+Expected results:
+
+1. The company is correctly deleted.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : shipping companies management
+Scenario name   : paging
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert 25 companies repeating 25 times scenario 1.
+5. Verify the paging adding, removing end changing the companies.
+
+Expected results:
+
+1. The companies paging works fine.
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : shipping companies management
+Scenario name   : unauthorized access
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Insert the following url in the browser address txt box:
+		http://<host>:<port>/<context>/adminListShipping.do
+		http://<host>:<port>/<context>/adminAddShipping.do
+		http://<host>:<port>/<context>/adminEditShipping.do
+
+Expected results:
+
+1. The following message is displayed:
+	"Autorizzazione non consentita. L'operazione richiesta necessita delle 
+	credenziali di amministratore."

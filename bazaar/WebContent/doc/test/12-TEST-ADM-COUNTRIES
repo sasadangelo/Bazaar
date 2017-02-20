@@ -1,0 +1,81 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : countries management
+Scenario name   : add country 
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Nazioni" and then "Aggiungi".
+4. Insert values and press the button "Conferma".
+
+Expected results:
+
+1. The new country is added to the system.
+2. ID and NAME are required fields.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : countries management
+Scenario name   : modify country 
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert a country as in scenario 1.
+5. Select the link "Modifica" in the countries list page, for the country 
+   just inserted.
+6. Change the values and press the button "Conferma".
+
+Expected results:
+
+1. The country is correctly changed.
+2. The field ID is not editable.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : countries management
+Scenario name   : delete country 
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert a country as in scenario 1.
+5. Select the link "Cancella" and confirm the deletion.
+
+Expected results:
+
+1. The country is correctly deleted.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : countries management
+Scenario name   : paging
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert 25 countries repeating 25 times scenario 1.
+5. Verify the paging adding, removing end changing the countries.
+
+Expected results:
+
+1. The countries paging works fine.
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : countries management
+Scenario name   : unauthorized access
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Insert the following url in the browser address txt box:
+		http://<host>:<port>/<context>/adminListCountries.do
+		http://<host>:<port>/<context>/adminAddCountries.do
+		http://<host>:<port>/<context>/adminEditCountries.do
+
+Expected results:
+
+1. The following message is displayed:
+	"Autorizzazione non consentita. L'operazione richiesta necessita delle 
+	credenziali di amministratore."

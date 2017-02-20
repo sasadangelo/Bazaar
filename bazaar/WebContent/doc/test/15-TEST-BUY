@@ -1,0 +1,224 @@
+All test cases will prerequisites the following categories tree:
+
+    Bazaar
+        |
+        |-----cat1
+        |       |
+        |       |----cat1-1
+        |       |       |
+        |       |       |----cat1-1-1
+        |       |       |        |
+        |       |       |        |-----prod1
+        |       |       |        |-----prod2
+        |       |       |
+        |       |       |----cat1-1-2
+        |       |       |        |
+        |       |       |        |-----prod2
+        |       |       |
+        |       |       |----cat1-1-3
+        |       | 
+        |       |----cat1-2
+        |               | 
+        |               |----prod3
+        |               |----cat1-2-1
+        |               |        |
+        |               |        |-----prod3
+        |               |
+        |               |----cat1-2-2
+        |                        |
+        |                        |-----prod4
+        |
+        |----cat2
+                |
+                |----cat2-1
+                |       |
+                |       |-----prod5
+                |
+                |----cat2-2
+                        |
+                        |----cat2-2-1
+                        |        |
+                        |        |-----prod1
+                        |        |-----prod3
+                        |        |-----prod5
+                        |
+                        |----cat2-2-2
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : shopping management
+Scenario name   : browse products
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Acquista".
+3. Browse all products surfing through categories.
+
+Expected results:
+
+1. After step 3 the products tree is browsed correctly.
+2. The email address field should be not editable
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : shopping management
+Scenario name   : make an order containing only one product.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Acquista".
+3. Browse all products surfing through categories.
+4. Add a product to the cart.
+5. Select the link "Esegui l'Ordine".
+6. Select the link "Clicca qui per registrarti con Bazaar".
+7. Insert your customer data.
+8. login as customer.
+9. Press the button "Conferma Ordine".
+
+Expected results:
+
+1. After step 5 the login page should appear.
+2. After step 7 the login page should appear again.
+3. After step 8 the order confirm page should appear.
+4. Verify the order exists in Profilo->Miei Ordini
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : shopping management
+Scenario name   : make an order with a different shipping address.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Acquista".
+3. Browse all products surfing through categories.
+4. Add a product to the cart.
+5. Select the link "Esegui l'Ordine".
+6. Select the link "Clicca qui per registrarti con Bazaar".
+7. Insert your customer data.
+8. login as customer.
+9. Change shipping address.
+10. Press the button "Conferma Ordine".
+
+Expected results:
+
+1. After step 5 the login page should appear.
+2. After step 7 the login page should appear again.
+3. After step 8 the order confirm page should appear.
+4. Verify the order exists in Profilo->Miei Ordini and its shipping address is correct.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : shopping management
+Scenario name   : cancel an order.
+Prerequisites   : make an order as in scenario 1.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Entra".
+3. Insert email address and password.
+4. Press the button "Entra".
+5. Select the link "Miei Ordini".
+6. Select the link "Annulla" for my order.
+
+Expected results:
+
+1. The order does not exists any more.
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : shopping management
+Scenario name   : buy two time same product.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Entra".
+3. Insert email address and password.
+4. Press the button "Entra".
+5. Select the link "Acquista".
+6. Browse the product prodX and add it to the cart.
+7. Continue shopping adding again prodX to the cart.
+8. Commit the order.
+
+Expected results:
+
+1. After step 7 the product in the cart appear one time with quantity equal to 2.
+2. After step 7 the product in "Miei Ordini" appear one time with quantity equal to 2.
+--------------------------------------------------------------------------------
+Scenario number : 6
+Use case        : shopping management
+Scenario name   : buy two or more different products.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Entra".
+3. Insert email address and password.
+4. Press the button "Entra".
+5. Select the link "Acquista".
+6. Browse the product prodX and add it to the cart.
+7. Browse the product prodY and add it to the cart.
+8. Browse the product prodZ and add it to the cart.
+9. Commit the order.
+
+Expected results:
+
+1. After step 9 an order exists in the system containing prodX, prodY, prodZ.
+--------------------------------------------------------------------------------
+Scenario number : 7
+Use case        : shopping management
+Scenario name   : change product quantity in cart
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Entra".
+3. Insert email address and password.
+4. Press the button "Entra".
+5. Select the link "Acquista".
+6. Browse the product prodX and add it to the cart.
+7. Select the link "Carrello".
+8. Change the quantity to 2.
+9. Select the link "Modifica".
+10. Select the link "Esegui l'ordine".
+11. Confirm order.
+
+Expected results:
+
+1. After step 11 the order contains two instances of product prodX.
+--------------------------------------------------------------------------------
+Scenario number : 8
+Use case        : shopping management
+Scenario name   : delete product from cart.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Entra".
+3. Insert email address and password.
+4. Press the button "Entra".
+5. Select the link "Acquista".
+6. Browse the product prodX and add it to the cart.
+7. Browse the product prodY and add it to the cart.
+8. Browse the product prodZ and add it to the cart.
+9. Select the link "Carrello".
+10. Select the link "Cancella" for product prodY.
+11. Select the link "Esegui l'ordine".
+12. Commit the order.
+
+Expected results:
+
+1. After step 12 an order exists in the system containing prodX, prodZ.
+--------------------------------------------------------------------------------
+Scenario number : 9
+Use case        : shopping management
+Scenario name   : cannot cancel order not in "Attesa di Pagamento" state.
+Description     :
+
+1.  Connect through a web browser to Bazaar system.
+2.  Select the link "Entra".
+3.  Insert email address and password.
+4.  Press the button "Entra".
+5.  Select the link "Acquista".
+6.  Browse some products and add them to the cart..
+11. Select the link "Esegui l'ordine".
+12. Commit the order.
+13. Wait the administrator change state in "Spedito".
+14. Check if order is cancelable.
+
+15. Repeat the same test for state "Rifiutato".
+
+Expected results:
+
+1. After step 14 the order is not cancelable.

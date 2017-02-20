@@ -1,0 +1,89 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : user login
+Scenario name   : user not registered
+Description     :
+
+1. Try to login using an email address not registered.
+
+Expected results:
+
+1. The following message should appear:
+		"Indirizzo Email '<email address>' non trovato. Devi prima registrarti."
+2. In the email address text box should appear the email previosly inserted.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : user login
+Scenario name   : invalid password
+Description     :
+
+1. Try to login using an email address registered but using a wrong password.
+
+Expected results:
+
+1. The following message should appear:
+    	"Password invalida, riprova di nuovo"
+2. In the email address text box should appear the email previosly inserted.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : user login
+Scenario name   : login successful
+Description     :
+
+1. Try to login using an email address registered and a correct password.
+
+Expected results:
+
+1. The user is correctly logged. 
+2. The profile page appear.
+3. The name of the user appear in the header.
+4. The sidebar menu change replacing the menuitem "Login" with "Profilo".
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : user login
+Scenario name   : login as administrator
+Description     :
+
+1. Try to login using the administrator email address and his password.
+
+Expected results:
+
+1. The administrator is correctly logged.
+2. The profile page appear.
+3. The name of the administrator followed by "(Amministratore)" appear in the 
+   header.
+4. The header menu contains only "Home".
+5. The sidebar menu change putting a typical administrator menu.
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : user login
+Scenario name   : user not authorized to use customer urls directly
+Description     :
+
+1. Starting from the home page and no user logged, type the following urls into
+   the address bar of the browser:
+
+	http://<host>:<port>/<context>/profile.do
+	
+2. Then type the following url into the address bar of the browser:
+
+	http://<host>:<port>/<context>/adminListCategories.do
+
+3. Login as customer.
+4. Type the following url into the address bar of the browser:
+
+    http://<host>:<port>/<context>/adminListCategories.do
+	
+Expected results:
+
+1. After step 1 the following message should appear:
+    	"Autorizzazione non consentita. L'operazione richiestai necessita del 
+		login nel sistema".
+2. After step 2 the following message should appear:
+    	"Autorizzazione non consentita. L'operazione richiesta necessita delle
+		credenziali di amministratore."
+3. After step 2 the customer is redirected to the login page.
+   The customer name still appear into the header.
+   The following message should appear:
+    	"Autorizzazione non consentita. L'operazione richiestai necessita delle
+    	credenziali di amministratore."

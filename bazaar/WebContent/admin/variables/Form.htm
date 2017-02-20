@@ -1,0 +1,51 @@
+<FORM action='<%=action%>' onsubmit="if(verifyForm()) return true; else return false;" method=post name='EditForm'>
+	<input type=hidden name='nStart' value="<%=nStart%>">
+	<input type=hidden name='nSize' value="<%=nSize%>">
+	<TABLE border=0 class=Data cellspacing=1 >
+		<TR>
+			<TH colspan=2>Inserisci i dati della Variabile</TH>
+		</TR>
+		<TR>
+<%
+			if (action.contains("Edit.jsp")) {
+%>
+				<TD><INPUT TYPE=hidden name='txtName' value='<%=object.txtName%>'></TD>
+<%
+			} else {
+%>
+				( Campi Obbligatori <font color=red>*</font> )
+				<TD>Nome <font color=red>*</font></TD>
+				<TD><INPUT TYPE=TEXT name='txtName' value='<%=object.txtName%>'></TD>
+<%
+			}
+%>
+		</TR>
+		<TR>
+			<TD>Valore</TD>
+			<TD><INPUT TYPE=TEXT name='txtValue' value='<%=object.txtValue%>'></TD>
+		</TR>
+		<TR>
+			<TD colspan=2><INPUT TYPE=Submit name='Submit' Value='Conferma'></TD>
+		</TR>
+	</TABLE>
+</FORM>
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+	function verifyEmpty(object,name) {
+		if(object.value=="") {
+			alert(name + " e' un campo obbligatorio.")
+			object.focus();
+			return false;
+		}
+		return true;
+	}
+	
+	function verifyForm() {
+		if(!verifyEmpty(document.EditForm.txtName,"Nome"))
+			return false;
+		return true;
+	}
+//-->
+</SCRIPT>
+

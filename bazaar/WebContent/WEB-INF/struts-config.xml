@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+  "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="loginForm" type="org.opencommunity.bazaar.account.presentation.forms.LoginForm"/>
+		<form-bean name="signupForm" type="org.opencommunity.bazaar.account.presentation.forms.SignupForm"/>
+		<form-bean name="changeProfileForm" type="org.opencommunity.bazaar.account.presentation.forms.ChangeProfileForm"/>
+		<form-bean name="changePasswdForm" type="org.opencommunity.bazaar.account.presentation.forms.ChangePasswdForm"/>
+        <form-bean name="forgotForm" type="org.opencommunity.bazaar.account.presentation.forms.ForgotForm"/>
+        <form-bean name="adminEditUserForm" type="org.opencommunity.bazaar.account.presentation.forms.EditUserForm"/>
+        <form-bean name="adminAddCategoryForm" type="org.opencommunity.bazaar.catalog.presentation.forms.AddCategoryForm"/>
+        <form-bean name="adminEditCategoryForm" type="org.opencommunity.bazaar.catalog.presentation.forms.EditCategoryForm"/>
+        <form-bean name="addProductForm" type="org.opencommunity.bazaar.catalog.presentation.forms.AddProductForm"/>
+        <form-bean name="editProductForm" type="org.opencommunity.bazaar.catalog.presentation.forms.EditProductForm"/>
+        <form-bean name="searchProductForm" type="org.opencommunity.bazaar.catalog.presentation.forms.SearchProductForm"/>
+        <form-bean name="addCartForm" type="org.opencommunity.bazaar.cart.presentation.forms.AddCartForm"/>
+        <form-bean name="modifyCartForm" type="org.opencommunity.bazaar.cart.presentation.forms.ModifyCartForm"/>
+        <form-bean name="definePaymentForm" type="org.opencommunity.bazaar.cash.presentation.forms.DefinePaymentForm"/>
+    </form-beans>
+
+    <global-forwards>
+	    <forward name="homeFWD" path="/home.do"/>
+	    <forward name="loginFWD" path="login.page"/>
+    </global-forwards>
+    
+    <action-mappings>
+		<action path="/home" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.ListProductCatalogAction"
+			validate="false">
+			<forward name="homePageFWD" path="home.page"/>
+		</action>
+
+        <action path="/about" forward="about.page"/>
+        <action path="/contact" forward="contact.page"/>
+        <action path="/agreement" forward="agreement.page"/>
+
+		<action path="/goLogin" forward="login.page"/>
+		<action path="/goSignup" forward="signup.page"/>
+        <action path="/goProfile" forward="profile.page" roles="user"/>
+        <action path="/goChangeProfile" forward="change.profile.page" roles="user"/>
+        <action path="/goChangePasswd" forward="change.passwd.page" roles="user"/>
+        <action path="/goAdminEditUser" forward="admin.edit.user.page" roles="admin"/>
+        <action path="/goAdminAddCategory" forward="admin.add.category.page" roles="admin"/>
+        <action path="/goAdminEditCategory" forward="admin.edit.category.page" roles="admin"/>
+        <action path="/goAddProduct" forward="add.product.page" roles="user"/>
+        <action path="/goEditProduct" forward="edit.product.page" roles="user"/>
+        <action path="/goCart" forward="cart.page"/>
+		
+		<action name="loginForm"
+			path="/login" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.LoginAction"
+			validate="true"
+			input="login.page">
+		    <forward name="profileFWD" path="profile.page"/>
+		</action>
+
+		<action name="forgotForm"
+			path="/forgot" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.ForgotPasswordAction"
+			validate="true"
+			input="login.page">
+		</action>
+
+		<action name="signupForm"
+			path="/signup" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.SignupAction"
+			validate="true"
+			input="signup.page">
+		    <forward name="profileFWD" path="profile.page"/>
+		    <forward name="signupFWD" path="signup.page"/>
+		</action>
+		
+		<action name="changeProfileForm"
+			path="/changeProfile" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.ChangeProfileAction"
+			validate="true"
+			input="change.profile.page"
+			roles="user">
+		    <forward name="profileFWD" path="profile.page"/>
+		    <forward name="changeProfileFWD" path="change.profile.page"/>
+		</action>
+		
+		<action name="changePasswdForm"
+			path="/changePasswd" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.ChangePasswdAction"
+			validate="true"
+			input="change.passwd.page"
+			roles="user">
+		    <forward name="profileFWD" path="profile.page"/>
+		    <forward name="changePasswdFWD" path="change.passwd.page"/>
+		</action>
+		
+		<action path="/logout" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.LogoutAction"
+			validate="false"
+			roles="user">
+		</action>
+		
+		<action path="/activation" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.ActivateAccountAction"
+			validate="false">
+		</action>
+		
+        <action path="/adminListUsers" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.ListAccountAction"
+			validate="false"
+            roles="admin">
+			<forward name="listAccountsFWD" path="admin.list.users.page" redirect="false"/>
+		</action>
+
+        <action path="/adminDeleteUser" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.DeleteAccountAction"
+			validate="false"
+            roles="admin">
+			<forward name="listAccountsFWD" path="admin.list.users.page"/>
+		</action>
+
+        <action name="adminEditUserForm"
+			path="/adminEditUser" 
+			scope="request"
+			type="org.opencommunity.bazaar.account.presentation.actions.EditUserAction"
+			validate="true"
+			input="admin.edit.user.page"
+            roles="admin">
+			<forward name="listAccountsFWD" path="admin.list.users.page"/>
+			<forward name="editUserFWD" path="admin.edit.user.page"/>
+		</action>
+
+        <action path="/adminListCategories" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.ListCategoryAction"
+			validate="false"
+            roles="admin">
+			<forward name="listCategoriesFWD" path="admin.list.categories.page"/>
+		</action>
+
+        <action name="adminAddCategoryForm"
+			path="/adminAddCategory" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.AddCategoryAction"
+			validate="true"
+			input="admin.add.category.page"
+            roles="admin">
+			<forward name="listCategoriesFWD" path="admin.list.categories.page"/>
+			<forward name="addCategoryFWD" path="admin.add.category.page"/>
+		</action>
+		
+		<action name="adminEditCategoryForm"
+			path="/adminEditCategory" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.EditCategoryAction"
+			validate="true"
+			input="admin.edit.category.page"
+            roles="admin">
+			<forward name="listCategoriesFWD" path="admin.list.categories.page"/>
+			<forward name="editCategoryFWD" path="admin.edit.category.page"/>
+		</action>
+
+        <action path="/adminDeleteCategory" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.DeleteCategoryAction"
+			validate="false"
+            roles="admin">
+			<forward name="listCategoriesFWD" path="admin.list.categories.page"/>
+		</action>
+		
+        <action path="/listProducts" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.ListProductAction"
+			validate="false"
+            roles="user">
+			<forward name="listProductsFWD" path="list.products.page"/>
+		</action>
+
+        <action name="addProductForm"
+			path="/addProduct" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.AddProductAction"
+			validate="true"
+			input="add.product.page"
+            roles="user">
+			<forward name="listProductsFWD" path="list.products.page"/>
+			<forward name="addProductFWD" path="add.product.page"/>
+		</action>
+		
+        <action name="editProductForm"
+			path="/editProduct" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.EditProductAction"
+			validate="true"
+			input="edit.product.page"
+            roles="user">
+			<forward name="listProductsFWD" path="list.products.page"/>
+			<forward name="editProductFWD" path="edit.product.page"/>
+		</action>
+		
+        <action path="/imageProduct" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.ImageProductAction"
+			validate="false">
+		</action>
+		
+        <action path="/deleteProduct" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.DeleteProductAction"
+			validate="false"
+            roles="user">
+			<forward name="listProductsFWD" path="list.products.page"/>
+		</action>
+		
+        <action path="/product" forward="product.page"/>
+
+        <action name="searchProductForm"
+            path="/search" 
+			scope="request"
+			type="org.opencommunity.bazaar.catalog.presentation.actions.SearchProductAction"
+			validate="true">
+			<forward name="listProductsFoundFWD" path="search.page"/>
+		</action>
+
+        <action name="addCartForm"
+            path="/addCart" 
+			scope="request"
+			type="org.opencommunity.bazaar.cart.presentation.actions.AddCartAction"
+			validate="false">
+			<forward name="cartFWD" path="cart.page"/>
+		</action>
+
+        <action name="modifyCartForm"
+            path="/modifyCart" 
+			scope="request"
+			type="org.opencommunity.bazaar.cart.presentation.actions.ModifyCartAction"
+			validate="false">
+			<forward name="cartFWD" path="cart.page"/>
+		</action>
+
+        <action path="/goShipping" 
+			scope="request"
+			type="org.opencommunity.bazaar.cart.presentation.actions.GoShippingCartAction"
+			validate="false"
+			roles="user">
+			<forward name="shippingCartFWD" path="shipping.page"/>
+			<forward name="profileFWD" path="profile.page"/>
+		</action>
+
+		<action path="/checkout" forward="checkout.page" roles="user"/>
+								
+		<action path="/goDefinePayment" forward="defpayment.page" roles="user"/>
+		
+        <action name="definePaymentForm"
+            path="/definePayment" 
+			scope="request"
+			type="org.opencommunity.bazaar.cash.presentation.actions.DefinePaymentAction"
+			input="defpayment.page"
+			validate="true">
+			<forward name="profileFWD" path="profile.page"/>
+		</action>
+
+
+
+
+
+
+
+
+        <action path="/displayWindow" forward="displayWindow.page"/>
+        <action path="/myorders" forward="myorders.page" roles="user"/>
+        <action path="/orderdetails" forward="/jsp/orders/OrderDetail.jsp" roles="user"/>
+        <action path="/checkout" forward="checkout.page" roles="user"/>
+        <action path="/adminAddProductCategory" forward="admin.add.product.category.page" roles="admin"/>
+        <action path="/adminEditProduct" forward="admin.edit.product.page" roles="admin"/>
+        <action path="/adminListEmailTemplates"
+            forward="admin.list.email.templates.page" roles="admin"/>
+        <action path="/adminAddEmailTemplate"
+            forward="admin.add.email.template.page" roles="admin"/>
+        <action path="/adminEditEmailTemplate"
+            forward="admin.edit.email.template.page" roles="admin"/>
+        <action path="/adminListVariables" forward="admin.list.variables.page"
+            roles="admin"/>
+        <action path="/adminAddVariables" forward="admin.add.variables.page"
+            roles="admin"/>
+        <action path="/adminEditVariables" forward="admin.edit.variables.page"
+            roles="admin"/>
+        <action path="/adminListCountries" forward="admin.list.countries.page"
+            roles="admin"/>
+        <action path="/adminAddCountries" forward="admin.add.countries.page"
+            roles="admin"/>
+        <action path="/adminEditCountries" forward="admin.edit.countries.page"
+            roles="admin"/>
+        <action path="/adminListShipping" forward="admin.list.shipping.page"
+            roles="admin"/>
+        <action path="/adminAddShipping" forward="admin.add.shipping.page"
+            roles="admin"/>
+        <action path="/adminEditShipping" forward="admin.edit.shipping.page"
+            roles="admin"/>
+        <action path="/adminListOrders" forward="admin.list.orders.page"
+            roles="admin"/>
+        <action path="/adminEditOrders" forward="admin.edit.orders.page"
+            roles="admin"/>
+        <action path="/adminEditTrackOrders"
+            forward="admin.edit.track.orders.page" roles="admin"/>
+        <action path="/adminRigenerateIndex"
+            forward="admin.rigenerate.index.page" roles="admin"/>
+    </action-mappings>
+
+    <controller processorClass="org.opencommunity.bazaar.controller.BazaarRequestProcessor" />
+
+	<message-resources key="org.apache.struts.action.MESSAGE" parameter="org.opencommunity.bazaar.bundles.AppResources" />
+    
+	<plug-in className="org.apache.struts.tiles.TilesPlugin" >
+  		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+  		<set-property property="definitions-parser-validate" value="false" />
+        <set-property property="definitions-debug" value="2" />
+        <set-property property="definitions-parser-details" value="2" />
+    </plug-in>
+	
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"/>
+        <set-property property="stopOnFirstError" value="false"/>
+    </plug-in>
+	
+</struts-config>

@@ -1,0 +1,58 @@
+BODY
+{
+    FONT-SIZE: xx-small;
+    FONT-FAMILY: Verdana
+}
+
+TABLE.Data
+{
+}
+
+TABLE.Data TH
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: xx-small;
+    COLOR: #ffffff;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #000080
+}
+
+TABLE.Data TD
+{
+    FONT-SIZE: xx-small;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #faf0e6
+}
+
+BODY TABLE
+{
+}
+
+BODY TABLE TD
+{
+    FONT-SIZE: xx-small;
+    FONT-FAMILY: Verdana
+}
+
+BODY TABLE TD A
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: xx-small;
+    COLOR: #0000ff;
+    FONT-FAMILY: Verdana
+}
+
+INPUT.SmallButton
+{
+    BORDER-RIGHT: medium none;
+    BORDER-TOP: medium none;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: xx-small;
+    BORDER-LEFT: medium none;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: medium none;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #000080;
+    TEXT-DECORATION: none
+}

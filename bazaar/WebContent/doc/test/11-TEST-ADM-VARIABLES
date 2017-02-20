@@ -1,0 +1,62 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : variables management
+Scenario name   : add variable
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Variabili" and then "Aggiungi".
+4. Insert values and press the button "Conferma".
+
+Expected results:
+
+1. The new variable is added to the system.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : variable management
+Scenario name   : modify variable
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert an emailtemplate as in scenario 1.
+5. Select the link "Modifica" in the variables list page, for the variable
+   just inserted.
+
+Expected results:
+
+1. The variable is correctly changed.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : variable management
+Scenario name   : delete variable 
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert an emailtemplate as in scenario 1.
+5. Select the link "Cancella" and confirm the deletion.
+
+Expected results:
+
+1. The variable is correctly deleted.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : variable management
+Scenario name   : paging
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert 25 variables repeating 25 times scenario 1.
+5. Verify the paging adding, removing end changing the variables.
+
+Expected results:
+
+1. The variables paging works fine.
+

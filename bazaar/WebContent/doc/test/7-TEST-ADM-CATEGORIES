@@ -1,0 +1,138 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : administrator categories management
+Scenario name   : add category
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Login".
+3. Login as administrator.
+4. Select the link "Categorie".
+5. Select the link "Aggiungi nuova categoria".
+6. Insert "Nome", "Descrizione" e "Titolo".
+7. Press the button "Conferma".
+
+8. In "categories list" page select the category name and the link "Dettagli".
+
+Expected results:
+
+1. The system redirect to the "categories list" page.
+2. The new category is visible in the list.
+3. After step 8 the category details are visible.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : administrator categories management
+Scenario name   : modify category
+Description     :
+
+1. Add a category as in scenario 1.
+2. Select the link "Modifica".
+3. Change the fields "Nome", "Descrizione" and "Titolo".
+4. Press the button "Conferma".
+
+Expected results:
+
+1. The system redirect to the "categories list" page.
+2. The updated category is visible in the list.
+3. Check details.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : administrator categories management
+Scenario name   : delete category
+Description     :
+
+1. Add a category as in scenario 1.
+2. Select the link "Cancella" and confirm the message.
+
+Expected results:
+
+1. The system redirect to the "categories list" page.
+2. The category is not visible anymore.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : administrator categories management
+Scenario name   : paging
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the link "Login".
+3. Login as administrator.
+4. Select the link "Categorie".
+5. Select the link "Aggiungi nuova categoria".
+6. Insert "Nome", "Descrizione" e "Titolo".
+7. Insert 25 categories repeating the steps 1-6.
+8. Check the correctness of the paging using "Succ" and "Prec" links.
+9. Try to verify the use of links "Dettagli", "Modifica" e "Cancella". Remove
+   all the categories.
+
+Expected results:
+
+1. The categories are correctly inserted.
+2. The paging system works fine.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : administrator categories management
+Scenario name   : nested categories
+Description     :
+
+1. Create the categories according to the following tree:
+
+	Bazaar
+		|
+		|-----cat1
+		|		|
+		|		|----cat1-1
+		|		|		|
+		|		|		|----cat1-1-1
+		|		|		|----cat1-1-2
+		|		|		|----cat1-1-3
+		|		|
+		|		|----cat1-2
+		|				|
+		|				|----cat1-2-1
+		|				|----cat1-2-2
+		|		
+		|----cat2
+				|
+				|----cat2-1
+				|
+				|----cat2-2
+						|
+						|----cat2-2-1
+						|----cat2-2-2
+
+2. Try to verify the use of links "Dettagli", "Modifica" e "Cancella". 
+3. Verify the paging. 
+4. Remove all the categories.
+
+Expected results:
+
+1. The categories are correctly inserted.
+2. The paging works fine.
+3. The nesting navigation works fine.
+4. The removal works fine.
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : administrator categories management
+Scenario name   : access not authorized 
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Type the following urls in the address text box:
+		http://<host>:<port>/<context>/adminListCategories.do
+		http://<host>:<port>/<context>/adminAddCategories.do
+		http://<host>:<port>/<context>/adminEditCategories.do
+3. Login as customer.
+4. Type the following url in the address text box:
+		http://<host>:<port>/<context>/adminListCategories.do
+        http://<host>:<port>/<context>/adminAddCategories.do
+        http://<host>:<port>/<context>/adminEditCategories.do
+
+Expected results:
+
+1. After step 2 the following message should appear:
+	"Autorizzazione non consentita. L'operazione richiesta necessita delle
+	credenziali di amministratore."
+2. The same after step 4.
+--------------------------------------------------------------------------------
+

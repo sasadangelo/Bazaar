@@ -1,0 +1,10 @@
+.metadata
+.recommenders
+.settings/
+.factorypath
+
+*.jar
+**/bin/**
+*.class
+
+**/WEB-INF/classes/**

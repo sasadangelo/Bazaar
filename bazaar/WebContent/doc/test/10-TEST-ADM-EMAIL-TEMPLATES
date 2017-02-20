@@ -1,0 +1,60 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : email template management
+Scenario name   : add email template
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert values and press the button "Conferma".
+
+Expected results:
+
+1. The new email template is added to the system.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : email template management
+Scenario name   : modify email template
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert an emailtemplate as in scenario 1.
+5. Select the link "Modifica" for the template jut inserted.
+
+Expected results:
+
+1. The email template is correctly changed.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : email template management
+Scenario name   : delete email template
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert an emailtemplate as in scenario 1.
+5. Select the link "Cancella" and confirm the deletion.
+
+Expected results:
+
+1. The email template is correctly deleted.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : email template management
+Scenario name   : paging
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Insert 25 emailtemplate repeteaing 25 times scenario 1.
+5. Verify the paging adding, removing end changing the templates.
+
+Expected results:
+
+1. The email template paging works fine.
+

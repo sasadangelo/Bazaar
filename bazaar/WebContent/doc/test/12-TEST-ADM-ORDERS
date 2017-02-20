@@ -1,0 +1,135 @@
+Prerequisites for all test cases is the definition of 10 orders.
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : admin order management
+Scenario name   : modify order
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select an order and select the link "Modifica".
+6. Put a string in the text box "Nota" and press the button Salva.
+
+7. Repeat the same from details order.
+
+Expected results:
+
+1. After step 6 and 7 the order is correctly updated.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : admin order management
+Scenario name   : change state
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select an order and select the link "Modifica".
+6. Change the state of the order and press the button Salva.
+
+7. Repeat the same from details order.
+
+Expected results:
+
+1. After step 6 and 7 the order is correctly updated.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : admin order management
+Scenario name   : update more than one order
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select two orders and select the link "Modifica".
+6. Change whatever field and press the button Salva.
+
+Expected results:
+
+1. After step 6 the orders are correctly updated.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : admin order management
+Scenario name   : delete order
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select an order and select the link "Cancella".
+
+6. repeat the same scenario selecting more than one order.
+
+Expected results:
+
+1. After step 5 the order is removed from the system.
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : admin order management
+Scenario name   : tracking order
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select an order and select the link "Tracking".
+6. Select a shipping company and update tracking text field.
+
+7. repeat the same scenario selecting more than one order.
+
+Expected results:
+
+1. After step 6 and 7 the order is correctly updated.
+--------------------------------------------------------------------------------
+Scenario number : 6
+Use case        : admin order management
+Scenario name   : send reminder
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select an order and select the link "Invio Promemoria Pagamento".
+
+6. repeat the same scenario selecting more than one order.
+
+Expected results:
+
+1. After step 5 and 6 the mail is correctly sent.
+--------------------------------------------------------------------------------
+Scenario number : 7
+Use case        : admin order management
+Scenario name   : download csv
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select the link "Scarica tutti i CSV".
+
+Expected results:
+
+1. Verify file downloaded.
+--------------------------------------------------------------------------------
+Scenario number : 8
+Use case        : admin order management
+Scenario name   : print all
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Ordini" and then show all orders.
+5. Select the link "Stampa Tutto".
+
+Expected results:
+
+1. Verify file downloaded.

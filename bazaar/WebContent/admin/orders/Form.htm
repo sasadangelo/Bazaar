@@ -1,0 +1,95 @@
+<HTML>
+<HEAD>
+<TITLE><%=title%></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+
+<LINK href="../../style.css" rel=stylesheet>
+
+<META content="MSHTML 5.50.4134.100" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 topMargin=0 marginwidth="0" marginheight="0" onLoad="">
+<%@include file='incToolbar.jsp'%>
+<TABLE align=center width=759 cellspacing=0 cellpadding=0>
+	<TR>
+		<TD align=left valign=top>
+		
+			<TABLE cellpadding=15 cellspacing=0 border=0>
+				<TR>
+					<FORM action='<%=action%>' method=post name='EditForm'>
+					<input type=hidden name='nStart' value="<%=nStart%>">
+					<input type=hidden name='nSize' value="<%=nSize%>">
+					<input type=hidden name='nID' value="<%=object.nID%>">
+					<TD>
+					
+					<!---------   Data Area ------------>
+					<TABLE border=0 class=Data cellspacing=1 >
+						<TR>
+							<TH colspan=2>Enter details of Order</TH>
+						</TR>
+							<TR>
+								<TD>txtEmailAddress</TD>
+								<TD><INPUT TYPE=TEXT name='txtEmailAddress' value='<%=object.txtEmailAddress%>'></TD>
+							</TR>
+							<TR>
+								<TD>tsChangeTime</TD>
+								<TD><INPUT TYPE=TEXT name='tsChangeTime' value='<%=object.tsChangeTime%>'></TD>
+							</TR>
+							<TR>
+								<TD>tsDate</TD>
+								<TD><INPUT TYPE=TEXT name='tsDate' value='<%=object.tsDate%>'></TD>
+							</TR>
+							<TR>
+								<TD>nOrderState</TD>
+								<TD><INPUT TYPE=TEXT name='nOrderState' value='<%=object.nOrderState%>'></TD>
+							</TR>
+							<TR>
+								<TD>dblTotal</TD>
+								<TD><INPUT TYPE=TEXT name='dblTotal' value='<%=object.dblTotal%>'></TD>
+							</TR>
+							<TR>
+								<TD>dblProcessingFees</TD>
+								<TD><INPUT TYPE=TEXT name='dblProcessingFees' value='<%=object.dblProcessingFees%>'></TD>
+							</TR>
+							<TR>
+								<TD>dblShippingCharges</TD>
+								<TD><INPUT TYPE=TEXT name='dblShippingCharges' value='<%=object.dblShippingCharges%>'></TD>
+							</TR>
+							<TR>
+								<TD>dblGrandTotal</TD>
+								<TD><INPUT TYPE=TEXT name='dblGrandTotal' value='<%=object.dblGrandTotal%>'></TD>
+							</TR>
+							<TR>
+								<TD>dblPaid</TD>
+								<TD><INPUT TYPE=TEXT name='dblPaid' value='<%=object.dblPaid%>'></TD>
+							</TR>
+							<TR>
+								<TD>txtRemarks</TD>
+								<TD><INPUT TYPE=TEXT name='txtRemarks' value='<%=object.txtRemarks%>'></TD>
+							</TR>
+							<TR>
+								<TD>txtTracking</TD>
+								<TD><INPUT TYPE=TEXT name='txtTracking' value='<%=object.txtTracking%>'></TD>
+							</TR>
+							<TR>
+								<TD>txtTrackingCompany</TD>
+								<TD><INPUT TYPE=TEXT name='txtTrackingCompany' value='<%=object.txtTrackingCompany%>'></TD>
+							</TR>
+							<TR>
+								<TD>txtTrackingURL</TD>
+								<TD><INPUT TYPE=TEXT name='txtTrackingURL' value='<%=object.txtTrackingURL%>'></TD>
+							</TR>
+
+						<TR>
+							<TD colspan=2><INPUT TYPE=Submit name='Submit' Value='Submit'></TD>
+						</TR>
+					</TABLE>
+					<!---------   End of Data Area ------------>
+					
+					</TD>
+					</FORM>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

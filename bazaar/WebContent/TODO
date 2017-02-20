@@ -1,0 +1,43 @@
+1. Nella pagina di login, se inserisco l'email e il login fallisce per problema di validazione,
+nel text box deve rimanere l'email. 
+2. Nella pagina di signup, se inserisco un campo e la registrazione fallisce per problema di validazione,
+nel text box deve rimanere il valore di quel campo
+3. Nel modulo di signup gestire bene l'accettazione delle clausole.
+4. Gestire l'invio di un messaggio di errore nel caso in cui l'utente non ha le credenziali giuste per una data operazione.
+5. Nelle mail il From non deve essere hardcoded, meglio un file di properties.
+6. I jar activtion.jar, mailapi.jar, ojt.jar per ora sono stati messi nella common/lib. Va creato un manifest
+per il caricamento a runtime.
+7. Il from address della mail va messo nel web.xml.
+8. L'hostname nella mail di registrazione deve essere un parametro di configurazione.
+9. Per ora se attivo un'utenza con successo non riesco a visualizzare il messaggio. Capire perche'.
+10. Quando gestisco la paginazione con il valuelisthandler patterns, sono costretto a cachare il risultato nella sessione.
+Il problema ? che i dati rimangono in memoria se l'utente poi sceglie altri servizi.
+11. Vedere se e' possibile spostare anche le action e i forms dal progetto bazaar ad account.
+12. Implementare la modifica dell'account da parte dell'amministratore.
+13. Nella tabella Account l'email address deve essere UNIQUE.
+14. Nella tabella Categorie il Nome deve essere UNIQUE.
+15. Quando inserisco una nuova categoria, se per problemi di validazione (o nome gi? esistente), quel nome e la
+descrizione devono rimanere visibili al prossimo inserimento.
+16. Pagamento con bonifico e paypal.
+17. Il repository lucene-index va creato nel progetto bazaar.
+18. La ricerca in lucene deve restituire solo prodotti attivi.
+19. L'amministratore deve poter vedere tutti i prodotti nel database.
+20. Gestione carrello.
+21. Gestione Ordini.
+22. Pagamento bonifico, paypal
+
+NEXT RELEASE
+------------
+1. Usare JSTL per la localizzazione delle labels e nella manipolazione dei bean nelle jsp.
+2. Nel modulo di signup, il telefono deve essere un numero. Aggiungere ione Pagamenti.un'entry nuova di validazione per il tipo number.. 
+3. Consentire la registrazione e il login solo mediante passphrase grafica. Questo per evitare la registrazione e il login
+attraverso sistemi automatici di tipo BOT.
+4. Per i prodotti aggiungere il link Genera HTML così le persone creeranno link al sito di Bazaar.
+
+NEXT NEXT RELEASE
+-----------------
+1. Pagamento con carta di credito.
+
+PERFORMANCE ISSUES
+------------------
+1. Quando la'mministratore visualizza la lista paginata degli utenti. Ad ogni pagina viene eseguita una query al db e ogni volta vengono fetchati tutti i dati.

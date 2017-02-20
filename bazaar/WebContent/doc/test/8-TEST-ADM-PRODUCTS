@@ -1,0 +1,109 @@
+All test cases will prerequisites the following categories tree:
+
+    Bazaar
+        |
+        |-----cat1
+        |       |
+        |       |----cat1-1
+        |       |       |
+        |       |       |----cat1-1-1
+        |       |       |----cat1-1-2
+        |       |       |----cat1-1-3
+        |       | 
+        |       |----cat1-2
+        |               | 
+        |               |----cat1-2-1
+        |               |----cat1-2-2
+        |
+        |----cat2
+                |
+                |----cat2-1
+                |
+                |----cat2-2
+                        |
+                        |----cat2-2-1
+                        |----cat2-2-2
+  
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : administrator products management
+Scenario name   : add a new product
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Prodotti".
+5. Select the link "Aggiungi nuovo prodotto".
+6. Insert product data and a top level ctegory.
+
+7. Repeat the test trying to use a nested category.
+8. Repeat the test trying to link the product to two or more categories.
+
+Expected results:
+
+1. Redirect to the "product list" page.
+2. The new product is visible.
+3. In the "categories list" page the new product is attached to the specified
+   categories.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : administrator products management
+Scenario name   : modify a product
+Description     :
+
+1. Insert a new product as in scenario 1.
+2. In the "products list" page, select the "Modifica" link.
+3. Change some values.
+4. Press the button "Conferma".
+
+Expected results:
+
+1. The changes have been applied.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : administrator products management
+Scenario name   : delete a product
+Description     :
+
+1. Insert a new product as in scenario 1.
+2. In the "products list" page, select the "Cancella" link.
+3. Confirm the delete message.
+
+Expected results:
+
+1. The deletion have been applied.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : administrator products management
+Scenario name   : paging
+Description     :
+
+1. Insert 25 new products using a procedure like scenario 1.
+2. Verify the correctness of the paging.
+3. Verify how the paging work when the links "Modifica" and "Cancella" are
+   used.
+
+Expected results:
+
+1. The paging work fine.
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : administrator products management
+Scenario name   : urls not authorized
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Insert the following addresses into the browser:
+		http://<host>:<port>//<context>/adminListProducts.do
+		http://<host>:<port>//<context>/adminAddProduct.do
+		http://<host>:<port>//<context>/adminEditProduct.do
+
+3. Repeat step 1 and 2 after you logged as customer.
+
+Expected results:
+
+1. The following message should appear:
+		"Autorizzazione non consentita. L'operazione richiesta necessita delle 
+		credenziali di amministratore."
+

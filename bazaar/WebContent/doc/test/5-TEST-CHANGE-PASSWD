@@ -1,0 +1,69 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : change password
+Scenario name   : empty text boxes
+Description     :
+
+1. Login as customer.
+2. Follow the links Profilo->Cambia Password.
+3. Press the button "Cambia".
+4. Insert old password and press the button "Cambia".
+5. Insert old and new password and press the button "Cambia".
+
+Expected results:
+
+1. After step 3 the following message should appear:
+    	"Vecchia Password non puo' essere vuota."
+2. After step 4 the following message should appear:
+		"Nuova Password non puo' essere vuota."
+3. After step 5 the following message should appear:
+    	"Le due password sono diverse. Riprova."
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : change password
+Scenario name   : change password successful
+Description     :
+
+1. Login as customer.
+2. Follow the links Profilo->Cambia Password.
+3. Insert the old, new and confirm password correctly.
+4. Press the button "Cambia".
+
+Expected results:
+
+1. Redirect to the profile page.
+2. The following message should appear:
+    	"Password cambiata con successo."
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : change password
+Scenario name   : administrator change password successful
+Description     :
+
+1. Login as administrator.
+2. Follow the links Profilo->Cambia Password.
+3. Insert the old, new and confirm password correctly.
+4. Press the button "Cambia".
+
+Expected results:
+
+1. Redirect to the profile page.
+2. The following message should appear:
+    	"Password cambiata con successo."
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : change password
+Scenario name   : user not authorized to use customer urls directly
+Description     :
+
+1. Starting from the home page and no user logged, type the following urls into
+   the address bar of the browser:
+
+    http://<host>:<port>/<context>/changePasswd.do
+
+Expected results:
+
+1. The following message should appear:
+    	"Autorizzazione non consentita. L'operazione richiesta necessita del 
+		login nel sistema".
+--------------------------------------------------------------------------------

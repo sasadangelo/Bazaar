@@ -1,0 +1,60 @@
+<FORM action='<%=action%>' onsubmit="if(verifyForm()) return true; else return false;" method=post name='EditForm'>
+	<input type=hidden name='nStart' value="<%=nStart%>">
+	<input type=hidden name='nSize' value="<%=nSize%>">
+	<TABLE border=0 cellspacing=1 class=Data>
+		<TR>
+			<TH colspan=2>Inserisci i dettagli della Nazione</TH>
+		</TR>
+		<TR>
+<%
+			if (action.contains("Edit.jsp")) {
+%>
+				<TD><INPUT TYPE=hidden name='txtID' value='<%=object.txtID%>'></TD>
+<%
+			} else {
+%>
+				( Campi Obbligatori <font color=red>*</font> )
+				<TD>ID <font color=red>*</font></TD>
+				<TD><INPUT TYPE=TEXT name='txtID' value='<%=object.txtID%>'></TD>
+<%
+			}
+%>
+		</TR>
+		<TR>
+			<TD>Nome <font color=red>*</font></TD>
+			<TD><INPUT TYPE=TEXT name='txtName' value='<%=object.txtName%>'></TD>
+		</TR>
+		<TR>
+			<TD>Tariffa Spedizione Standard</TD>
+			<TD><INPUT TYPE=TEXT name='dblRegisteredPost' value='<%=object.dblRegisteredPost%>'></TD>
+		</TR>
+		<TR>
+			<TD>Tariffa Spedizione Express</TD>
+			<TD><INPUT TYPE=TEXT name='dblExpressCourier' value='<%=object.dblExpressCourier%>'></TD>
+		</TR>
+		<TR>
+			<TD colspan=2><INPUT TYPE=Submit name='Submit' Value='Conferma'></TD>
+		</TR>
+	</TABLE>
+</FORM>
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+	function verifyEmpty(object,name) {
+		if(object.value=="") {
+			alert(name + " e' un campo obbligatorio.")
+			object.focus();
+			return false;
+		}
+		return true;
+	}
+	
+	function verifyForm() {
+		if(!verifyEmpty(document.EditForm.txtID,"ID"))
+			return false;
+		if(!verifyEmpty(document.EditForm.txtName,"Nome"))
+			return false;
+		return true;
+	}
+//-->
+</SCRIPT>

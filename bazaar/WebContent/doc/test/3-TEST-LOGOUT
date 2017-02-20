@@ -1,0 +1,42 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : logout
+Scenario name   : customer logout
+Description     :
+
+1. Login as customer.
+2. Follow the links Profilo->Logout.
+
+Expected results:
+
+1. Redirect to the home page.
+2. The customer in the header will disappear.
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : logout
+Scenario name   : administrator logout
+Description     :
+
+1. Login as administrator.
+2. Follow the links Profilo->Logout.
+
+Expected results:
+
+1. Redirect to the home page.
+2. The administrator in the header will disappear.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : logout
+Scenario name   : user not logged try to logout using the url directly.
+Description     :
+
+1. Start from home page with no user logged.
+2. Type the following urls into the address bar of the browser:
+
+    http://<host>:<port>/<context>/jsp/users/Logout.jsp
+
+Expected results:
+
+1. Redirect to the home page.
+--------------------------------------------------------------------------------
+

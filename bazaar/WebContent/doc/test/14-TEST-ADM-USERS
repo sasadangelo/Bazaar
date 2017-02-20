@@ -1,0 +1,83 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : users management
+Scenario name   : edit user
+Prerequisites   : at least one user registered 
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Utenti" and then "Modifica".
+4. Change values and press the button "Conferma".
+
+Expected results:
+
+1. The user is changed to the system.
+2. The email address field should be not editable
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : users management
+Scenario name   : delete user
+Prerequisites   : at least one user registered 
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Utenti" and then "Cancella" for the user to delete.
+
+Expected results:
+
+1. The user is correctly deleted.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : users management
+Scenario name   : paging
+Prerequisites   : 25 users registered
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Utenti".
+5. Verify the paging using the links: "Succ", "Prev", "Modifica" and "Cancella".
+
+Expected results:
+
+1. The users paging works fine.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : users management
+Scenario name   : user not found
+Prerequisites   : user "test@test.it" registered into the system
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Utenti" and remove the user "test@test.it".
+5. Select the link "Profilo" and then "Logout".
+6. Select the link "Login" and try to loin as "test@test.it".
+
+Expected results:
+
+1. The user is not found and the following message appear:
+
+	"Indirizzo Email 'test@test.it' non trovato. Devi prima registrati."
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : users management
+Scenario name   : unauthorized access
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Insert the following url in the browser address txt box:
+		http://<host>:<port>/<context>/adminListUsers.do
+		http://<host>:<port>/<context>/adminEditUsers.do
+
+Expected results:
+
+1. The following message is displayed:
+	"Autorizzazione non consentita. L'operazione richiesta necessita delle 
+	credenziali di amministratore."

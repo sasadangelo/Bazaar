@@ -1,0 +1,129 @@
+MYSQL Installation on Gentoo
+----------------------------
+
+1. Mettere in /usr/portage/package.use la seguente riga:
+	dev-db/mysql innodb berkdb
+
+2. Installare mysql:
+	emerge mysql
+
+3. Lanciare il seguente comando:
+	ebuild /var/db/pkg/dev-db/mysql-foo*/mysql-foo*.ebuild config
+
+   dove al posto di foo va messa la versione di mysql in uso. Si usi 
+   l'autocompletamento della bash per semplificare la scrittura del comando.
+
+2. Il precedente script dovrebbe creare un database mysql con tutta la 
+   configurazione iniziale. Lo script esegue implicitamente il seguente comando:
+	/usr/bin/mysql_install_db
+
+   se, in seguito, si avranno problemi si consiglia di lanciare questo comando
+   a mano.
+
+3. Start the server:
+	/etc/init.d/mysqld start
+
+4. Set the password for root user
+	/usr/bin/mysqladmin -u root-h localhost passwrod '<passwd>'
+
+Configurazione MYSQL Database
+-----------------------------
+
+1. aprire una shell mysql:
+    sh> mysql -u root -p
+
+2. Dare a localhost i permessi x accedere a tutti i databases:
+	mysql> grant all privileges on *.* to <user> identified by '<passwd>'
+					with grant option;
+	mysql> flush privileges;
+
+Configurazione Java
+-------------------
+
+1. Download di java sdk 1.5 (jdk-1_5_0_04-linux-i586.bin).
+
+2. Attivare i permessi di esecuzione sul file:
+	chmod +x jdk-1_5_0_04-linux-i586.bin
+
+3. Installazione:
+	./jdk-1_5_0_04-linux-i586.bin
+
+4. Set up delle variabili di ambiente PATH e JAVA_HOME in ~/.bashrc:
+	export JAVA_HOME=<path java>
+	export PATH=$JAVA_HOME/bin:$PATH
+
+Configurazione Tomcat
+---------------------
+
+1. Download di tomcat dal sito http://jakarta.apache.org dei files:
+	jakarta-tomcat-5.5.9.tar.gz
+	jakarta-tomcat-5.5.9-admin.tar.gz
+	
+2. Untar dei due files nell'ordine sopra riportato 
+   (jakarta-tomcat-5.5.9-admin.tar.gz sovascrivera' alcuni files)
+
+3. Setup delle variabili di ambiente CATALINA_HOME e PATH
+	export CATALINA_HOME=<tomcat path>
+	export PATH=$CATALINA_HOME/bin:$PATH
+
+4. Define a tomcat administrator. First of all define the following roles in
+   <CATALINA_HOME>/conf/tomcat-users.xml
+		<role rolename="manager"/>
+		<role rolename="admin"/>
+		<role rolename="standard"/>
+
+   define users:
+		<user username="<user>" password="<passwd>" 
+                                roles="admin,manager,standard"/>
+
+Configurazione di Bazaar
+------------------------
+
+1. Copiare bazaar.war file in <CATALINA_HOME>/webapps
+
+2. Start tomcat with the command:
+    sh> <CATALINA_HOME>/bin/startup.sh
+
+3. Check the startup looking at the log file with the command:
+    	sh> tail -f <CATALINA_HOME>/logs/catalina.out
+
+4. Stop the tomcat server using the command:
+   	sh> <CATALINA_HOME>/bin/shutdown.sh
+
+
+5. Change the directory to <CATALINA_HOME>/webapps/bazaar with the command:
+    	sh> cd <CATALINA_HOME>/webapps/bazaar
+
+6. Edit the file conf/shop.xml setting the following values:
+
+    <shop>
+        <id> <SHOP ID> </id>
+        <name> <SHOP NAME> </name>
+        <company> <COMPANY NAME> </company>
+        <web-address> http://localhost:8080/<SHOP ID> </web-address>
+        <support-email> <SUPPORT EMAIL> </support-email>
+    </shop>
+
+7. Log in mysql
+	mysql -u root -p	(Inserisci la password)
+
+8. Crea il database di Bazaar:
+	mysql> create database <DB NAME>;
+
+9. Connettersi al database appena creato:
+	mysql> use <DB NAME> 
+   
+10. Create the database using the mysql command:
+	mysql> souce MySQLBazaar.sql
+
+11. Edit the file conf/database.xml setting the following values:
+
+    <database>
+            <driver>org.gjt.mm.mysql.Driver</driver>
+            <url> jdbc:mysql://localhost/<DB NAME> </url>
+            <username> <mysql user id>  </username>
+            <password> <mysql password> </password>
+    </database>
+
+12. Restart the server again:
+     	sh> <CATALINA_HOME>/bin/startup.sh

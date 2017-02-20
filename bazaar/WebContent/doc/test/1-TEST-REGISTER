@@ -1,0 +1,68 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : customer register
+Scenario name   : field required
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the links Login->Clicca qui per registrarti ...
+3. Leave the "Indirizzo Emai" field empty.
+4. Press the "Registra" button.
+
+5. Repeat the 3 steps for all the required fields including agreement.
+
+Expected results:
+
+1. The following message should appear for required field:
+		"<field> e' un campo obbligatorio"
+2. The following message should appear for agreement:
+    	"Devi accettare tutte le clausole e condizioni."
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : customer login
+Scenario name   : customer successfully registered
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the links Login->Clicca qui per registrarti ...
+3. Insert the data for a new customer except the friend field.
+
+4. Repeat the scenario inserting a correct value for the friend field.
+
+Expected results:
+
+1. The following message should appear:
+    "Registrazione eseguita con successo."
+2. The signup email is correctly sent to the new customer.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : customer register
+Scenario name   : customer already registered.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the links Login->Clicca qui per registrarti ...
+3. Insert an email address of a customer already registered. Fill others field
+   with correct values.
+
+Expected results:
+
+1. The following message should appear:
+	"L'indirizzo email <email> gia' esiste nel database, utilizza un indirizzo
+	diversoo richiedi la password se l'hai dimenticata."
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : customer login
+Scenario name   : friend not defined
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the links Login->Clicca qui per registrarti ...
+3. Insert the data for a new customer. In the field "Amico che ti ha segnalato
+   il sito" enter the email address of a customer not registered.
+
+Expected results:
+
+1. The following message should appear:
+	"Il cliente con indirizzo email <email> non esiste nel database, verifica
+	i dati inseriti"

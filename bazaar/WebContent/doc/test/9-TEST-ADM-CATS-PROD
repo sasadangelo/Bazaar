@@ -1,0 +1,145 @@
+All test cases will prerequisites the following categories tree:
+
+    Bazaar
+        |
+        |-----cat1
+        |       |
+        |       |----cat1-1
+        |       |       |
+        |       |       |----cat1-1-1
+        |       |       |----cat1-1-2
+        |       |       |----cat1-1-3
+        |       | 
+        |       |----cat1-2
+        |               | 
+        |               |----cat1-2-1
+        |               |----cat1-2-2
+        |
+        |----cat2
+                |
+                |----cat2-1
+                |
+                |----cat2-2
+                        |
+                        |----cat2-2-1
+                        |----cat2-2-2
+  
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : administrator categories management
+Scenario name   : no product was found
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Categorie".
+5. Select the category cat1.
+6. Select the link "Aggiungi Prodotto nella Categoria cat1".
+
+Expected results:
+
+1. No product was found and the following message appear:
+	"Prodotti inesistenti, vai nella sezione Prodotti e aggiungi nuovi Prodotti"
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : administrator categories management
+Scenario name   : add products in categories
+Prerequisites   : 5 products present into the system linked to any categories.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Categorie".
+5. Select the category cat1.
+6. Select the link "Aggiungi Prodotto nella Categoria cat1".
+7. Select the product "prod1".
+8. Press the button "Aggiungi".
+
+9. Repeat steps 4-8 to have the following links:
+	cat1    <->prod1,prod2
+	cat1-1  <->prod1,prod3
+	cat2-1  <->prod3,prod4
+	cat2-2-2<->prod1,prod5
+
+Expected results:
+
+1. After step 6 the 5 products are visible.
+2. After step 8 the products "prod1" is removed from the list of products
+   available.
+3. Verify using the category navigation the association cat1<->prod1.
+4. Verify also that after an association is executed the same products are
+   not available for the same category.
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : administrator categories management
+Scenario name   : modify a product
+Prerequisistes  : 5 products already inserted and the following association
+                  with categories:
+					    cat1    <->prod1,prod2
+					    cat1-1-2<->prod1,prod3
+					    cat2-1  <->prod3,prod4
+					    cat2-2-2<->prod1,prod5
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Categorie".
+5. Select the category cat1.
+6. Select the link "Modifica" for product "prod1".
+7. Change some fields (also categories if you want) and press "Conferma".
+
+8. Repeat the same procedure fow all the prodcuts.
+
+Expected results:
+
+1. After step 7 check if the change has been applied. Look also in products 
+   management section. If a category has been added/removed, check the change
+   in the category tree.
+2. After step 8 perform the same check as in 1.
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : administrator categories management
+Scenario name   : delete a product
+Prerequisistes  : prod1 already inserted with the following associations:
+                        cat1, cat1-1-2, cat2-2-2<->prod1
+
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Categorie".
+5. Select the category cat1.
+6. Select the link "Cancella" for product "prod1".
+7. Select the category "cat1" and select the link "Cancella" for link "cat1-1".
+
+8. Continue the scenario removing all the associations category-product.
+
+Expected results:
+
+1. After step 6 prod1 is not associated to cat1, but it is still present into
+   the system.
+2. After step7 cat1-1 and its subcategories and products associations are 
+   deleted.
+3. After step 8 no product is connected to categories.
+
+--------------------------------------------------------------------------------
+Scenario number : 5
+Use case        : administrator categories management
+Scenario name   : paging
+Prerequisistes  : 25 products prod1-prod25 distributed across the categories.
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the "Login" link.
+3. Login as administrator.
+4. Select the link "Categorie" and navigate through categories and products
+   verifying the product paging.
+
+Expected results:
+
+1. The product paging works fine.
+--------------------------------------------------------------------------------

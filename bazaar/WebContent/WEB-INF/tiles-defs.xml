@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+-->
+
+<tiles-definitions>
+	<definition name='template.page' path='/template.jsp'>
+		<put name='sidebar' value='/sidebar.jsp'/>
+		<put name='header'  value='/header.jsp'/>	
+		<put name='content' value=''/>	
+		<put name='footer'  value='/footer.jsp'/>	
+	</definition>
+
+    <!-- Home page -->
+    <definition name='home.page' extends='template.page'> 
+        <put name="content" value='/home.jsp'/>
+    </definition>
+
+    <!-- Contact page -->
+    <definition name='contact.page' extends='template.page'> 
+        <put name='content' value='/contact.jsp'/>
+    </definition>
+
+    <!-- About page -->
+    <definition name='about.page' extends='template.page'> 
+        <put name='content' value='/about.jsp'/>
+    </definition>
+
+    <!-- Agreement page -->
+    <definition name='agreement.page' extends='template.page'> 
+        <put name='content' value='/useragreement.jsp'/>
+    </definition>
+
+    <!-- Login page -->
+    <definition name='login.page' extends='template.page'> 
+        <put name='content' value='/jsp/users/Login.jsp'/>
+    </definition>
+
+    <!-- Signup page -->
+    <definition name='signup.page' extends='template.page'> 
+        <put name='content' value='/jsp/users/Signup.jsp'/>
+    </definition>
+	
+    <!-- Profile page -->
+    <definition name='profile.page' extends='template.page'> 
+        <put name='content' value='/jsp/users/Profile.jsp'/>
+    </definition>
+	
+    <!-- Change Profile page -->
+    <definition name='change.profile.page' extends='template.page'> 
+        <put name='content' value='/jsp/users/ChangeProfile.jsp'/>
+    </definition>
+
+    <!-- Change Passwd page -->
+    <definition name='change.passwd.page' extends='template.page'> 
+        <put name='content' value='/jsp/users/ChangePassword.jsp'/>
+    </definition>
+	
+    <!-- Admin list users page -->
+    <definition name='admin.list.users.page' extends='template.page'> 
+        <put name='content' value='/admin/users/List.jsp'/>
+    </definition>
+
+    <!-- Admin edit users page -->
+    <definition name='admin.edit.user.page' extends='template.page'> 
+        <put name='content' value='/admin/users/Edit.jsp'/>
+    </definition>
+
+    <!-- Admin list categories page -->
+    <definition name='admin.list.categories.page' extends='template.page'> 
+        <put name='content' value='/admin/categories/List.jsp'/>
+    </definition>
+	
+    <!-- Admin add category page -->
+    <definition name='admin.add.category.page' extends='template.page'> 
+        <put name='content' value='/admin/categories/Add.jsp'/>
+    </definition>
+	
+    <!-- Admin edit category page -->
+    <definition name='admin.edit.category.page' extends='template.page'> 
+        <put name='content' value='/admin/categories/Edit.jsp'/>
+    </definition>
+
+    <!-- List products page -->
+    <definition name='list.products.page' extends='template.page'> 
+        <put name='content' value='/jsp/products/List.jsp'/>
+    </definition>
+	
+    <!-- Add product page -->
+    <definition name='add.product.page' extends='template.page'> 
+        <put name='content' value='/jsp/products/Add.jsp'/>
+    </definition>
+	
+    <!-- Edit product page -->
+    <definition name='edit.product.page' extends='template.page'> 
+        <put name='content' value='/jsp/products/Edit.jsp'/>
+    </definition>
+
+    <!-- Product page -->
+    <definition name='product.page' extends='template.page'> 
+        <put name='content' value='/jsp/cart/Product.jsp'/>
+    </definition>
+
+    <!-- Search page -->
+    <definition name='search.page' extends='template.page'> 
+        <put name="content" value='/search.jsp'/>
+    </definition>
+
+    <!-- Cart page -->
+    <definition name='cart.page' extends='template.page'> 
+        <put name='content' value='/jsp/cart/Cart.jsp'/>
+    </definition>
+
+    <!-- Shipping page -->
+    <definition name='shipping.page' extends='template.page'> 
+        <put name='content' value='/jsp/cart/Shipping.jsp'/>
+    </definition>
+
+    <!-- Checkout page -->
+    <definition name='checkout.page' extends='template.page'> 
+        <put name='content' value='/jsp/cart/Checkout.jsp'/>
+    </definition>
+
+    <!-- Define Payment page -->
+    <definition name='defpayment.page' extends='template.page'> 
+        <put name='content' value='/jsp/payments/DefinePayment.jsp'/>
+    </definition>
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+
+    <!-- Display window page -->
+    <definition name='displayWindow.page' extends='template.page'> 
+        <put name="content" value='/jsp/cart/DisplayWindowFull.jsp'/>
+    </definition>
+
+    <!-- My Orders page -->
+    <definition name='myorders.page' extends='template.page'> 
+        <put name='content' value='/jsp/orders/MyOrders.jsp'/>
+    </definition>
+
+    <!-- Admin add product in category page -->
+    <definition name='admin.add.product.category.page' extends='template.page'> 
+        <put name='content' value='/admin/categories/AddProduct.jsp'/>
+    </definition>
+
+    <!-- Admin rigenerate index page -->
+    <definition name='admin.rigenerate.index.page' extends='template.page'> 
+        <put name='content' value='/admin/products/RigenerateIndex.jsp'/>
+    </definition>
+
+    <!-- Admin edit product page -->
+    <definition name='admin.edit.product.page' extends='template.page'> 
+        <put name='content' value='/admin/products/Edit.jsp'/>
+    </definition>
+
+    <!-- Admin rigenerate index -->
+    <definition name='admin.rigenerate.index.page' extends='template.page'> 
+        <put name='content' value='/admin/products/RigenerateIndex.jsp'/>
+    </definition>
+    
+    <!-- Admin list email templates page -->
+    <definition name='admin.list.email.templates.page' extends='template.page'> 
+        <put name='content' value='/admin/emailtemplates/List.jsp'/>
+    </definition>
+
+    <!-- Admin add email template page -->
+    <definition name='admin.add.email.template.page' extends='template.page'> 
+        <put name='content' value='/admin/emailtemplates/Add.jsp'/>
+    </definition>
+
+    <!-- Admin edit email template page -->
+    <definition name='admin.edit.email.template.page' extends='template.page'> 
+        <put name='content' value='/admin/emailtemplates/Edit.jsp'/>
+    </definition>
+
+    <!-- Admin list variables page -->
+    <definition name='admin.list.variables.page' extends='template.page'> 
+        <put name='content' value='/admin/variables/List.jsp'/>
+    </definition>
+
+    <!-- Admin add variables page -->
+    <definition name='admin.add.variables.page' extends='template.page'> 
+        <put name='content' value='/admin/variables/Add.jsp'/>
+    </definition>
+
+    <!-- Admin edit variables page -->
+    <definition name='admin.edit.variables.page' extends='template.page'> 
+        <put name='content' value='/admin/variables/Edit.jsp'/>
+    </definition>
+
+    <!-- Admin list countries page -->
+    <definition name='admin.list.countries.page' extends='template.page'> 
+        <put name='content' value='/admin/countries/List.jsp'/>
+    </definition>
+
+    <!-- Admin add countries page -->
+    <definition name='admin.add.countries.page' extends='template.page'> 
+        <put name='content' value='/admin/countries/Add.jsp'/>
+    </definition>
+
+    <!-- Admin edit countries page -->
+    <definition name='admin.edit.countries.page' extends='template.page'> 
+        <put name='content' value='/admin/countries/Edit.jsp'/>
+    </definition>
+
+    <!-- Admin list shipping page -->
+    <definition name='admin.list.shipping.page' extends='template.page'> 
+        <put name='content' value='/admin/shippingcompanies/List.jsp'/>
+    </definition>
+
+    <!-- Admin add shipping page -->
+    <definition name='admin.add.shipping.page' extends='template.page'> 
+        <put name='content' value='/admin/shippingcompanies/Add.jsp'/>
+    </definition>
+
+    <!-- Admin edit shipping page -->
+    <definition name='admin.edit.shipping.page' extends='template.page'> 
+        <put name='content' value='/admin/shippingcompanies/Edit.jsp'/>
+    </definition>
+
+    <!-- Admin list orders page -->
+    <definition name='admin.list.orders.page' extends='template.page'> 
+        <put name='content' value='/admin/orders/List.jsp'/>
+    </definition>
+
+    <!-- Admin edit orders page -->
+    <definition name='admin.edit.orders.page' extends='template.page'> 
+        <put name='content' value='/admin/orders/Edit.jsp'/>
+    </definition>
+
+    <!-- Admin edit track orders page -->
+    <definition name='admin.edit.track.orders.page' extends='template.page'> 
+        <put name='content' value='/admin/orders/EditTracking.jsp'/>
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,13 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : home page links
+Scenario name   : verify home page links
+Description     :
+
+1. Connect through a web browser to Bazaar system.
+2. Select the links "Accordo", "Info" e "Contatti".
+
+Expected results:
+
+1. The system redirect the page to the correct ones.
+

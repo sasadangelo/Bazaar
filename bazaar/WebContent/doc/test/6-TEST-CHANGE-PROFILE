@@ -1,0 +1,96 @@
+--------------------------------------------------------------------------------
+Scenario number : 1
+Use case        : change profile
+Scenario name   : field required
+Description     :
+
+1. Login as customer.
+2. Follow the links Profilo->Cambia Profilo.
+3. Leave the "Nome" text box empty.
+5. Press the button "Aggiorna".
+
+6. Repeat the same test case for the fields:
+    Cognome
+    Indirizzo
+    Citta'
+    Codice Postale
+    Stato/Prov
+    Nazione
+    Telefono
+
+Expected results:
+
+The following message should appear:
+    "<field> e' un campo obbligatorio".
+--------------------------------------------------------------------------------
+Scenario number : 2
+Use case        : change profile
+Scenario name   : change the profile successfully
+Description     :
+
+1. Login as customer.
+2. Follow the links Profilo->Cambia Profilo.
+3. Change the field "Nome".
+5. Press the button "Aggiorna".
+
+6. Repeat the same test case for the fields:
+    Cognome
+    Indirizzo
+    Citta'
+    Codice Postale
+    Stato/Prov
+    Nazione
+    Telefono
+
+Expected results:
+
+Redirect to the profile page.
+The following message should appear:
+    "Profilo aggiornato con successo."
+--------------------------------------------------------------------------------
+Scenario number : 3
+Use case        : change profile
+Scenario name   : user not authorized to change profile
+Description     :
+
+1. Starting from the home page and no user logged. 
+2. Type the following urls into the address bar of the browser:
+
+    http://<host>:<port>/<context>/changeProfile.do
+
+Expected results:
+
+The following message should appear:
+    "Autorizzazione non consentita. L'operazione richiestai necessita del login
+    nel sistema".
+--------------------------------------------------------------------------------
+Scenario number : 4
+Use case        : change profile
+Scenario name   : administrator change the profile successfully
+Description     :
+
+1. Login as administrator.
+2. Follow the links Profilo->Cambia Profilo.
+3. Change the field "Nome".
+5. Press the button "Aggiorna".
+
+6. Repeat the same test case for the fields:
+    Cognome
+    Indirizzo
+    Citta'
+    Codice Postale
+    Stato/Prov
+    Nazione
+    Telefono
+
+Expected results:
+
+1. The change profile page should not contain the following fields:
+		sendInformation
+		neverSendMessage
+   and the text relative to the phone number. Please see the change profile page
+   for customers.
+2. Redirect to the profile page.
+3. The following message should appear:
+   		"Profilo aggiornato con successo."
+4. After step 1 the menu item "Miei Ordine" should not be a link, but a simple text.

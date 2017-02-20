@@ -1,0 +1,8 @@
+Bazaar 1.0
+----------------------------------------------------------------------------------
+1. JSPCart
+2. traduzione in italiano
+3. risoluzione di 22 difetti.
+4. SMTP server gestito come parametro di configurazione.
+5. Integrazione con struts tiles necessario per il supporto dei temi.
+6. Supporto dei temi.

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+      "http://jakarta.apache.org/commons/dtds/validator_1_0.dtd">
+
+<form-validation>
+  <formset>
+    <form name="loginForm">
+      <field property="userName"  depends="required,maxlength,email">
+        <arg0 key="Indirizzo Email" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="password"  depends="required,minlength,maxlength">
+        <arg0 key="Password" resource="false"/>
+        <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+        <var><var-name>minlength</var-name><var-value>5</var-value></var>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+    </form>
+
+    <form name="signupForm">
+      <field property="txtEmailAddress"  depends="required,maxlength,email">
+        <arg0 key="Indirizzo Email" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtPassword"  depends="required,minlength,maxlength">
+        <arg0 key="Password" resource="false"/>
+        <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+        <var><var-name>minlength</var-name><var-value>5</var-value></var>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+      <field property="txtConfirmPassword"  depends="required,minlength,maxlength">
+        <arg0 key="Conferma Password" resource="false"/>
+        <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+        <var><var-name>minlength</var-name><var-value>5</var-value></var>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+      <field property="txtConfirmPassword"  depends="twofields">
+        <arg0 key="Password" resource="false"/>
+        <arg1 key="Conferma Password" resource="false"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>txtPassword</var-value>
+        </var>
+      </field>
+      <field property="txtFirstname"  depends="required,maxlength">
+        <arg0 key="Nome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtLastname"  depends="required,maxlength">
+        <arg0 key="Cognome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtStreetAddress"  depends="required,maxlength">
+        <arg0 key="Indirizzo" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtCity"  depends="required,maxlength">
+        <arg0 key="Citta'" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtZipCode"  depends="required,maxlength,integer">
+        <arg0 key="Codice Postale" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>5</var-value></var>
+      </field>
+      <field property="txtState"  depends="required,maxlength">
+        <arg0 key="Provincia" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtPhone"  depends="required,maxlength">
+        <arg0 key="Telefono" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+		<!--
+      <field property="bAgree"  depends="required">
+        <arg0 key="Clausole e Condizioni" resource="false"/>
+      </field>
+			-->
+    </form>
+
+    <form name="changeProfileForm">
+      <field property="txtFirstname"  depends="required,maxlength">
+        <arg0 key="Nome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtLastname"  depends="required,maxlength">
+        <arg0 key="Cognome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtStreetAddress"  depends="required,maxlength">
+        <arg0 key="Indirizzo" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtCity"  depends="required,maxlength">
+        <arg0 key="Citta'" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtZipCode"  depends="required,maxlength,integer">
+        <arg0 key="Codice Postale" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>5</var-value></var>
+      </field>
+      <field property="txtState"  depends="required,maxlength">
+        <arg0 key="Provincia" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtPhone"  depends="required,maxlength">
+        <arg0 key="Telefono" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+    </form>
+
+    <form name="changePasswdForm">
+      <field property="txtOldPassword"  depends="required,minlength,maxlength">
+        <arg0 key="Vecchia Password" resource="false"/>
+        <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+        <var><var-name>minlength</var-name><var-value>5</var-value></var>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+      <field property="txtNewPassword"  depends="required,minlength,maxlength">
+        <arg0 key="Nuova Password" resource="false"/>
+        <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+        <var><var-name>minlength</var-name><var-value>5</var-value></var>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+      <field property="txtConfirmPassword"  depends="required,minlength,maxlength">
+        <arg0 key="Conferma Password" resource="false"/>
+        <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+        <var><var-name>minlength</var-name><var-value>5</var-value></var>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+      <field property="txtConfirmPassword"  depends="twofields">
+        <arg0 key="Nuova Password" resource="false"/>
+        <arg1 key="Conferma Password" resource="false"/>
+        <var>
+          <var-name>secondProperty</var-name>
+          <var-value>txtNewPassword</var-value>
+        </var>
+      </field>
+    </form>
+
+    <form name="forgotForm">
+      <field property="txtEmailAddress"  depends="required,maxlength,email">
+        <arg0 key="Indirizzo Email" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+    </form>
+	  	  
+    <form name="adminEditUserForm">
+      <field property="txtFirstname"  depends="required,maxlength">
+        <arg0 key="Nome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtLastname"  depends="required,maxlength">
+        <arg0 key="Cognome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtStreetAddress"  depends="required,maxlength">
+        <arg0 key="Indirizzo" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtCity"  depends="required,maxlength">
+        <arg0 key="Citta'" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtZipCode"  depends="required,maxlength,integer">
+        <arg0 key="Codice Postale" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>5</var-value></var>
+      </field>
+      <field property="txtState"  depends="required,maxlength">
+        <arg0 key="Provincia" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="txtPhone"  depends="required,maxlength">
+        <arg0 key="Telefono" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>15</var-value></var>
+      </field>
+    </form>
+
+    <form name="adminAddCategoryForm">
+      <field property="txtName"  depends="required,maxlength">
+        <arg0 key="Nome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtDescription"  depends="maxlength">
+        <arg0 key="Descrizione" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+    </form>
+
+    <form name="adminEditCategoryForm">
+      <field property="txtName"  depends="required,maxlength">
+        <arg0 key="Nome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtDescription"  depends="maxlength">
+        <arg0 key="Descrizione" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+    </form>
+
+    <form name="addProductForm">
+      <field property="txtAryCatIds"  depends="required">
+        <arg0 key="Categorie" resource="false"/>
+      </field>
+      <field property="txtName"  depends="required,maxlength">
+        <arg0 key="Nome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtShortDescription"  depends="required,maxlength">
+        <arg0 key="Breve Descrizione" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="numQuantity"  depends="required,maxlength,integer">
+        <arg0 key="Quantita'" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>10</var-value></var>
+      </field>
+      <field property="dblPrice"  depends="required,maxlength,double">
+        <arg0 key="Prezzo" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>10</var-value></var>
+      </field>
+    </form>
+
+    <form name="editProductForm">
+      <field property="txtAryCatIds"  depends="required">
+        <arg0 key="Categorie" resource="false"/>
+      </field>
+      <field property="txtName"  depends="required,maxlength">
+        <arg0 key="Nome" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>20</var-value></var>
+      </field>
+      <field property="txtShortDescription"  depends="maxlength">
+        <arg0 key="Breve Descrizione" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>30</var-value></var>
+      </field>
+      <field property="numQuantity"  depends="required,maxlength,integer">
+        <arg0 key="Quantita'" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>10</var-value></var>
+      </field>
+      <field property="dblPrice"  depends="required,maxlength,double">
+        <arg0 key="Prezzo" resource="false"/>
+        <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+        <var><var-name>maxlength</var-name><var-value>10</var-value></var>
+      </field>
+    </form>
+
+    <form name="searchProductForm">
+      <field property="txtSearch"  depends="required">
+        <arg0 key="Chiave Ricerca" resource="false"/>
+      </field>
+    </form>
+
+    <form name="definePaymentForm">
+      <field property="numCc"  depends="validwhen">
+        <arg0 key="Conto Corrente" resource="false"/>
+        <var>
+            <var-name>test</var-name>
+            <var-value>(((bonifico == null) or (bonificoSend == null)) or (*this* != null))</var-value>
+        </var> 
+      </field>
+      <field property="numAbi"  depends="validwhen">
+        <arg0 key="Abi" resource="false"/>
+        <var>
+            <var-name>test</var-name>
+            <var-value>((bonifico == null) or (*this* != null))</var-value>
+        </var>
+      </field>
+      <field property="numCab"  depends="validwhen">
+        <arg0 key="Cab" resource="false"/>
+        <var>
+            <var-name>test</var-name>
+            <var-value>((bonifico == null) or (*this* != null))</var-value>
+        </var>
+      </field>
+      <field property="txtCin"  depends="validwhen">
+        <arg0 key="Cin" resource="false"/>
+        <var>
+            <var-name>test</var-name>
+            <var-value>((bonifico == null) or (*this* != null))</var-value>
+        </var>
+      </field>
+      <field property="txtPaypalEmailAddress"  depends="validwhen">
+        <arg0 key="Indirizzo Email Paypal" resource="false"/>
+        <var>
+            <var-name>test</var-name>
+            <var-value>((paypal == null) or (*this* != null))</var-value>
+        </var>
+      </field>
+    </form>
+  </formset>
+</form-validation>
+
+

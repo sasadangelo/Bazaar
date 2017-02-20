@@ -1,0 +1,9 @@
+<shop>
+	<id>bazaar</id>
+	<name>Bazaar</name>
+	<company>Bazaar</company>
+	<web-address>http://localhost:8080/bazaar</web-address>
+	<support-email>bazaar@bazaar.org</support-email>
+    <smtp-server>localhost</smtp-server>
+    <skin>blueocean</skin>
+</shop>
